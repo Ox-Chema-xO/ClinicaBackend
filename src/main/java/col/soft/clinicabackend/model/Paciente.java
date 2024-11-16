@@ -8,33 +8,30 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.sql.Date;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="paciente")
 public class Paciente {
-    /*
-    public enum Email {
-    }*/
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)    
-    @Column(name="dni")
-    private Long Dni;    
-    @Column(name="nombres")
-    private String Nombres;    
-    @Column(name="apellidos")
-    private String Apellidos;      
-    @Column(name="fecha_de_nacimiento")
-    private Date FechaDeNacimiento;  
+    @Id  
+    @Column(name="dni",nullable=false)
+    private Long dni;    
+    @Column(name="nombres",nullable=false)
+    private String nombres;    
+    @Column(name="apellidos",nullable=false)
+    private String apellidos;      
+    @Column(name="fecha_de_nacimiento",nullable=false)
+    private Date fechaDeNacimiento;  
     @Column(name="correo_electronico")
-    private String CorreoElectronico;
-    //private Email CorreoElectronico;    
-    @Column(name="numero_celular")
-    private Long NumeroCelular;    
-    @Column(name="domicilio")
-    private String Domicilio;    
+    private String correoElectronico;   
+    @Column(name="numero_celular",nullable=false)
+    private Long numeroCelular;    
+    @Column(name="domicilio",nullable=false)
+    private String domicilio;    
 }

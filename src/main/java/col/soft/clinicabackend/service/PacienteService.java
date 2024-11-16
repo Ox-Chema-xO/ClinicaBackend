@@ -19,4 +19,27 @@ public class PacienteService {
     public Optional<Paciente> findPacienteByDni(Long dni){
         return pacienteRepository.findById(dni);
     }
-}
+    
+    public Paciente insertPaciente(Paciente paciente) {
+        return pacienteRepository.save(paciente);
+    }
+        
+    public Paciente updatePacienteByDni(Long dni,Paciente newpaciente) {
+        Optional<Paciente> optionalPaciente = pacienteRepository.findById(dni);
+        if (!optionalPaciente.isPresent()) {  
+           return null; 
+        }
+        Paciente paciente = optionalPaciente.get();
+        paciente.setNombres(newpaciente.getNombres());
+        paciente.setApellidos(newpaciente.getApellidos());
+        paciente.setFechaDeNacimiento(newpaciente.getFechaDeNacimiento());
+        paciente.setCorreoElectronico(newpaciente.getCorreoElectronico());
+        paciente.setNumeroCelular(newpaciente.getNumeroCelular());
+        paciente.setDomicilio(newpaciente.getDomicilio());
+        return pacienteRepository.save(paciente);
+       
+    }
+
+} 
+    
+    
