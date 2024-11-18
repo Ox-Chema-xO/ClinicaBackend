@@ -23,5 +23,7 @@ public class Especialidad {
     @Column(name="nombre_especialidad",nullable=false)
     private String nombreEspecialidad;  
     @Column(name="salario",nullable=false)
-    private BigDecimal salario;  
+    private BigDecimal salario;
+    @Column(name="costo_servicio",nullable=false)
+    private BigDecimal costoServicio;
 }
