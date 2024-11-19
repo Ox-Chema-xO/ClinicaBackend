@@ -51,7 +51,7 @@ public class CitaService {
                 horario.getDia().getFecha(),
                 horario.getHoras().getHoraInicio(),
                 horario.getHoras().getHoraFin(),
-                "pendiente"
+                "enEvaluacion"
         );
         cita = citaRepository.save(cita);
         CitaResponse citaResponse = CitaResponse.fromEntity(cita);
@@ -70,7 +70,6 @@ public class CitaService {
         cita.setFecha(newhorario.getDia().getFecha());
         cita.setHoraInicio(newhorario.getHoras().getHoraInicio());
         cita.setHoraFin(newhorario.getHoras().getHoraFin());
-        cita.setEstado(citaRequest.getEstado());
         newhorario.setEstado("reservado");
         
         cita = citaRepository.save(cita);

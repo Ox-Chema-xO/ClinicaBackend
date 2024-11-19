@@ -19,7 +19,8 @@ public class CitaResponse {
     private Long dniPaciente;
     private String nombresPaciente;
     private String apellidosPaciente;
-    private Integer idHorarios;       
+    private String nombresMedico;
+    private String apellidosMedico;    
     private Date fecha;             
     private Time horaInicio;        
     private Time horaFin;           
@@ -31,7 +32,8 @@ public class CitaResponse {
                 .dniPaciente(cita.getPaciente().getDni())
                 .nombresPaciente(cita.getPaciente().getNombres())
                 .apellidosPaciente(cita.getPaciente().getApellidos())
-                .idHorarios(cita.getHorario().getIdHorarios())       
+                .nombresMedico(cita.getHorario().getMedico().getNombres())
+                .apellidosMedico(cita.getHorario().getMedico().getApellidos())      
                 .fecha(cita.getFecha())
                 .horaInicio(cita.getHoraInicio())
                 .horaFin(cita.getHoraFin())

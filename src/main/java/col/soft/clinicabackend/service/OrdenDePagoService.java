@@ -93,6 +93,9 @@ public class OrdenDePagoService {
         if(ordenDePago==null) return new OrdenDePagoResponse();
         //cambiamos el estado
         ordenDePago.setEstado("pagado");
+        Cita cita = citaRepository.findById(ordenDePago.getCita().getIdCita()).get();
+        cita.setEstado("agendada");
+        
         //guardamos los cambios
         ordenDePago = ordenDePagoRepository.save(ordenDePago);
         OrdenDePagoResponse ordenDePagoResponse = OrdenDePagoResponse.fromEntity(ordenDePago);
