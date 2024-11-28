@@ -1,9 +1,8 @@
 package col.soft.clinicabackend.dto;
 
-import col.soft.clinicabackend.model.Dia;
 import col.soft.clinicabackend.model.Horarios;
-import col.soft.clinicabackend.model.Horas;
-import col.soft.clinicabackend.model.Medico;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
@@ -17,21 +16,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class HorariosResponse {
     private Integer idHorarios;   
-    private String idMedico;
     private String nombresMedico;
-    private String apellidosMedico;           
-    private Dia dia;            
-    private Horas horas;          
+    private String apellidosMedico; 
+    private Date fecha;             
+    private Time horaInicio;        
+    private Time horaFin;               
     private String estado;            
 
     public static HorariosResponse fromEntity(Horarios horarios) {
         return HorariosResponse.builder()
                 .idHorarios(horarios.getIdHorarios())
-                .idMedico(horarios.getMedico().getIdMedico())
                 .nombresMedico(horarios.getMedico().getNombres())
                 .apellidosMedico(horarios.getMedico().getApellidos())
-                .dia(horarios.getDia())
-                .horas(horarios.getHoras())
+                .fecha(horarios.getDia().getFecha())
+                .horaInicio(horarios.getHoras().getHoraInicio())
+                .horaFin(horarios.getHoras().getHoraFin())
                 .estado(horarios.getEstado())
                 .build();
     }

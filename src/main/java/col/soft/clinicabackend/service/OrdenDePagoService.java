@@ -44,7 +44,7 @@ public class OrdenDePagoService {
         if(cita==null) return new OrdenDePagoResponse();
         
         OrdenDePago ordenDePago = new OrdenDePago(
-                ordenDePagoRequest.getIdOrdenDePago(), //idOrdenDePago
+                null, //idOrdenDePago
                 cita, //cita
                 null, //comprobanteDePago
                 null, //metodoDePago

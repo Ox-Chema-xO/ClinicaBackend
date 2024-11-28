@@ -4,6 +4,8 @@ package col.soft.clinicabackend.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
@@ -14,16 +16,19 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
 
 @Data
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@DynamicInsert
 @Table(name="ordendepago")
 public class OrdenDePago {
     @Id  
-    @Column(name="id_orden_de_pago",nullable=false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_orden_de_pago")
     private String idOrdenDePago; 
     
     @OneToOne(fetch = FetchType.EAGER)
