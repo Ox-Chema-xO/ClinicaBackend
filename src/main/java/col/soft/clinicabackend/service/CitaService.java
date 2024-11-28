@@ -45,7 +45,7 @@ public class CitaService {
         horario.setEstado("reservado");
         
         Cita cita = new Cita(
-                citaRequest.getIdCita(),
+                null,
                 paciente,
                 horario,
                 horario.getDia().getFecha(),

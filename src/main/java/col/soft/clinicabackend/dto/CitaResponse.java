@@ -20,7 +20,8 @@ public class CitaResponse {
     private String nombresPaciente;
     private String apellidosPaciente;
     private String nombresMedico;
-    private String apellidosMedico;    
+    private String apellidosMedico; 
+    private String nombreConsultorio;
     private Date fecha;             
     private Time horaInicio;        
     private Time horaFin;           
@@ -33,7 +34,8 @@ public class CitaResponse {
                 .nombresPaciente(cita.getPaciente().getNombres())
                 .apellidosPaciente(cita.getPaciente().getApellidos())
                 .nombresMedico(cita.getHorario().getMedico().getNombres())
-                .apellidosMedico(cita.getHorario().getMedico().getApellidos())      
+                .apellidosMedico(cita.getHorario().getMedico().getApellidos()) 
+                .nombreConsultorio(cita.getHorario().getMedico().getConsultorio().getNombreConsultorio())
                 .fecha(cita.getFecha())
                 .horaInicio(cita.getHoraInicio())
                 .horaFin(cita.getHoraFin())
