@@ -18,6 +18,7 @@ public class HorariosResponse {
     private Integer idHorarios;   
     private String nombresMedico;
     private String apellidosMedico; 
+    private String nombreEspecialidad;
     private Date fecha;             
     private Time horaInicio;        
     private Time horaFin;               
@@ -28,6 +29,7 @@ public class HorariosResponse {
                 .idHorarios(horarios.getIdHorarios())
                 .nombresMedico(horarios.getMedico().getNombres())
                 .apellidosMedico(horarios.getMedico().getApellidos())
+                .nombreEspecialidad(horarios.getMedico().getEspecialidad().getNombreEspecialidad())
                 .fecha(horarios.getDia().getFecha())
                 .horaInicio(horarios.getHoras().getHoraInicio())
                 .horaFin(horarios.getHoras().getHoraFin())

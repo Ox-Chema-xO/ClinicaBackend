@@ -43,6 +43,20 @@ public class CitaController {
         return ResponseEntity.ok(listaCitaResponse);
     }
     
+    @GetMapping("/find/by/id/{id}")
+    public ResponseEntity<?> getCitaById(@PathVariable String id){
+        CitaResponse citaResponse;
+        try{
+            citaResponse=citaService.getCitaById(id);
+        }catch(Exception e){
+            logger.error("Error inesperado",e);
+            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        if(citaResponse == null)
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ErrorResponse.builder().message("Citas not found").build());
+        return ResponseEntity.ok(citaResponse);
+    }
+   
     @GetMapping("/find/by/fecha-and-estado")   
     public ResponseEntity<?> getCitasEstadosByFecha(@RequestParam Date fecha, @RequestParam String estado){
         List<CitaResponse> listaCitasResponse=null;
