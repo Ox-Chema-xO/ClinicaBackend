@@ -59,11 +59,11 @@ public class OrdenDePagoController {
     }
     
     @PostMapping()
-    public ResponseEntity<?> insertOrdenDePago(@RequestBody Optional<OrdenDePagoRequest> ordenDePagoRequest){
+    public ResponseEntity<?> insertOrdenDePago(@RequestBody OrdenDePagoRequest ordenDePagoRequest){
         logger.info(">insert" + ordenDePagoRequest.toString());
-        OrdenDePagoResponse ordenDePagoResponse = null;
+        OrdenDePagoResponse ordenDePagoResponse;
         try {
-            ordenDePagoResponse = ordenDePagoService.insertOrdenDePago(ordenDePagoRequest.get());
+            ordenDePagoResponse = ordenDePagoService.insertOrdenDePago(ordenDePagoRequest);
         } catch (Exception e) {
             logger.error("Error inesperado",e);
             return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
