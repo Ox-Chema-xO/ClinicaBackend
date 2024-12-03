@@ -36,10 +36,13 @@ public class HistorialClinicoService {
         Paciente paciente = pacienteRepository.findById(dniPaciente).get();
         if(paciente==null) return new HistorialClinicoResponse();
         
-        HistorialClinico historialClinico = new HistorialClinico();
-        historialClinico.setPaciente(paciente);
-        
-        
+        HistorialClinico historialClinico = new HistorialClinico(
+            null,
+            paciente,
+            null,
+            null,
+            null
+        );
         historialClinico = historialClinicoRepository.save(historialClinico);
         HistorialClinicoResponse historialClinicoResponse = HistorialClinicoResponse.fromEntity(historialClinico);
         return historialClinicoResponse;

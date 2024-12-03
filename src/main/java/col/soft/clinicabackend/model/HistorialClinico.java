@@ -41,6 +41,6 @@ public class HistorialClinico {
     private String observaciones; 
     
     @Column(name="diagnosticos")
-    private String diagnosticos;     
+    private String diagnosticos;   
     
 }
